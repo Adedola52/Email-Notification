@@ -21,3 +21,5 @@ The email system was used to:
 - Send transaction notifications when a transaction occurs
 - Send login alerts when a user logs into their account
 
+  ![image alt](https://github.com/Adedola52/Email-Notification/blob/79006e779f6d7799302c08f955b6b58d4ab01f11/Images/Email_notification_.jpg)
+
