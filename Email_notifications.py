@@ -6,7 +6,7 @@ import logging
 from dotenv import load_dotenv
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from email_template import send_mail
+from Email_notifications_modular_code import send_mail
 from datetime import datetime
 
 # logging configurations 
