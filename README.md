@@ -17,6 +17,8 @@ The function:
 - Iterates through the DataFrame to send personalized emails to each recipient
 - Sends both plain text and HTML versions of the email body, allowing the recipient's email client to choose the appropriate format
 
+Once created, this function was called and reused in a separate Python script to send transaction and login notifications. This modular approach promotes clean code and easy reusability
+
 The email system was used to:
 - Send transaction notifications when a transaction occurs
 - Send login alerts when a user logs into their account
