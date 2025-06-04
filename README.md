@@ -23,3 +23,5 @@ The email system was used to:
 
   ![image alt](https://github.com/Adedola52/Email-Notification/blob/79006e779f6d7799302c08f955b6b58d4ab01f11/Images/Email_notification_.jpg)
 
+  ![image alt](https://github.com/Adedola52/Email-Notification/blob/890ba0e94e0d2de86e28d835b0f774c1dd9e647f/Images/Email_notification__.jpg)
+
