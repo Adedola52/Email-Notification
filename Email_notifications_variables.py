@@ -117,10 +117,10 @@ notification_html = """<html>
 
 
 values = [transaction_data, notification_data, port, sender_email, sender_password, 
-          host, transaction_subject, notification_subject, transaction_html, transaction_text, notification_text, notification_text]
+          host, transaction_subject, notification_subject, transaction_html, transaction_text, notification_html, notification_text]
 
 keys = ["transaction_data", "notification_data", "port", "sender_email", "sender_password", 
-          "host", "transaction_subject", "notification_subject", "transaction_html", "transaction_text", "notification_text", "notification_html"]
+          "host", "transaction_subject", "notification_subject", "transaction_html", "transaction_text", "notification_html", "notification_text"]
 
 
 argument_info = dict(zip(keys, values))
