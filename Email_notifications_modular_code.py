@@ -25,28 +25,40 @@ def send_mail(port: int, host: str, sender_email: str, sender_password: str, tab
           None
     """
     try:
-        if not table.empty:
-            for _, row in table.iterrows():
-                msg = MIMEMultipart('alternative')
-                msg['From'] = sender_email
-                msg['To'] = row['email']
-                msg['Subject'] = subject
-                text_msg = text.format(**row.to_dict())
-                html_msg = html.format(**row.to_dict())
-                text_message = MIMEText(text_msg, 'plain')
-                html_message = MIMEText(html_msg, 'html')
-                msg.attach(text_message)
-                msg.attach(html_message)
+        # connects to the SMTP server and login
+        with smtplib.SMTP(host, port) as server:
+            server.starttls()
+            server.login(sender_email, sender_password)
+            if not table.empty:
+                # iterates the DataFrame to send emails to each receipients
+                for _, row in table.iterrows():
+                    try:
+                        msg = MIMEMultipart('alternative')
+                        msg['From'] = sender_email
+                        msg['To'] = row['email']
+                        msg['Subject'] = subject
+                        text_msg = text.format(**row.to_dict())
+                        html_msg = html.format(**row.to_dict())
+                        text_message = MIMEText(text_msg, 'plain')
+                        html_message = MIMEText(html_msg, 'html')
+                        msg.attach(text_message)
+                        msg.attach(html_message)
 
-                with smtplib.SMTP(host, port) as server:
-                    server.starttls()
-                    server.login(sender_email, sender_password)
-                    server.sendmail(sender_email, row['email'], msg.as_string())
-                    logging.info(f"Email sent to {row['name']} successfully")
-        else:
-            logging.info('No record found')
-    except Exception as e:
-        logging.error(f'Error sending emails: {e}')
+                        # sends email to each reciepients 
+                        server.sendmail(sender_email, row['email'], msg.as_string())
+                        logging.info(f"{subject} Email sent to {row['name']} successfully")
+
+                    # raises an exception when sending to a receipient fails    
+                    except Exception as e:
+                        logging.info(f"Error sending emails to {e}")
+
+            # returns an else statement when there is no record found 
+            else:
+                logging.info('No record found')
+
+    # raises an exception when a connection error occurs             
+    except smtplib.SMTPException as e:
+        logging.error(f'Error with {e}')
 
 
 
