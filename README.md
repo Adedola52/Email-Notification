@@ -2,13 +2,24 @@
 
 ## CASE STUDY: Email Notification System for Transactions and logins
 
-This project simulates a real-time email notification system used by banks and fintech platforms, built to send alerts to users immediately after a transaction or login event. It mirrors how digital banks notify users to improve transparency and prevent fraud 
+This project simulates a real-time email notification system used by banks and fintech platforms. It is designed to send alerts to users immediately after a transaction or login event, reflecting how digital banks maintain transparency and help prevent fraud.
+
+This repository includes:
+
+- **A modular Python script:** Defines a reusable function for sending emails using smtplib. It handles email formatting (plain and HTML), recipient iteration, and error handling
+- **A configuration script:** Stores variables (e.g login credentials, sender info, email content) that are passed as arguments to the email function
+- **A main driver script:** Imports both the email function and configuration, then uses them to trigger email notifications for transaction and login events
 
 ## Tool Used:
 - Python
 
 ## Step:
-I wrote a modular Python function that sends emails to recipients using smtplib. The function accepts key parameters such as login credentials, sender credentials, email body (Plain and HTML format), and a DataFrame containing recipient details.
+I wrote a modular Python function that sends emails to recipients using smtplib. The function has key parameters defined such as:
+
+- login credentials
+- sender credentials
+- email body (Plain and HTML format)
+- DataFrame containing recipient details
 
 The function:
 
